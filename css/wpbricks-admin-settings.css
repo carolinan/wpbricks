@@ -1,0 +1,54 @@
+/**
+ * bricks setting page css.
+ */
+.bricks-settings{position:relative;margin:16px 0 20px;border:1px solid #e5e5e5;box-shadow:0 1px 1px rgba(0, 0, 0, 0.04);background:#fff;font-size:13px;padding:15px 0;box-sizing:border-box;display:inline-block;width:99%}
+.bricks-settings .container{display:block;width:100%;max-width:100%;padding:0 15px;box-sizing:border-box;margin:0 auto}
+.bricks-settings .bricks_title{margin:0 0 30px;line-height:normal}
+.bricks-settings .bricks_title h1{margin:10px 0 0 0}
+.bricks-settings a{margin-bottom:10px!important}
+.bricks-settings .bricks_button_wrap{display:inline-block;margin-bottom:10px}
+.bricks-settings .bricks_button_wrap p{margin:0 0 5px}
+.bricks-setting-buttons a.button, .bricks-setting-penal a.button{display:inline-block;margin-right:5px}
+.layout-images .image-select-wrap{display:inline-block;width:46%;position:relative;margin:0 5px 15px 0;max-width:140px}
+.layout-images .image-select-wrap label{box-shadow:0 0 2px 0 rgba(51, 51, 51, 0.24);display:inline-block;width:100%}
+.layout-images .image-select-wrap label img{width:100%;display:block}
+.layout-images{display:inline-block;width:100%}
+
+/**
+ * Backend page header sticky option css.
+ */
+#header-sticky-setting .handlediv .toggle-indicator::before, #header-transparent-setting .handlediv .toggle-indicator::before{content:"\f347";font-weight:500;color:#191e23;font-size:18px;position:relative;z-index:11}
+#header-sticky-setting .handlediv[aria-expanded="true"] .toggle-indicator::before, #header-transparent-setting .handlediv[aria-expanded="true"] .toggle-indicator::before{content:"\f343"}
+#header-sticky-setting h2:hover, #header-transparent-setting h2:hover{background-color:#f8f9f9;cursor:pointer}
+#header-sticky-setting h2 span, #header-transparent-setting h2 span{color:#191e23;font-size:13px}
+#header-sticky-setting .sticky-header div, #header-transparent-setting .transparent-header div{display:inline-block;vertical-align:middle;margin-right:15px}
+#header-sticky-setting .sticky-header div input, #header-transparent-setting .transparent-header div input{margin:2px 1px 0 0;border-radius:2px}
+#header-sticky-setting .sticky-header div input:focus, #header-transparent-setting .transparent-header div input:focus{box-shadow:none}
+#adminmenu div.wp-menu-image img{width:22px;padding-top:8px}
+
+/**
+ * Customizer options css
+ */
+#sub-accordion-section-header_setings_section .cs-range-control input, #customize-control-bricks_footer_bg_opacity .cs-range-control input{width:100%}
+#sub-accordion-section-header_setings_section .cs-range-value, #customize-control-bricks_footer_bg_opacity .cs-range-value{display:inline-block;margin-top:10px;border:1px solid #ccc;padding:5px;color:#333;width:100%;box-sizing:border-box;text-align:center;background:#fff}
+#input_bricks_header_layout .headerlayout, #input_bricks_footer_layout .headerlayout, #input_bricks_social_layout .headerlayout{display:inline-block;width:100%;box-shadow:0 0 2px 0 rgba(51, 51, 51, 0.24)}
+#input_bricks_header_layout .image-select, #input_bricks_footer_layout .image-select, #input_bricks_social_layout .image-select{opacity:0;position:absolute;left:0;top:0}
+#input_bricks_header_layout .image-select-wrap, #input_bricks_footer_layout .image-select-wrap, #input_bricks_social_layout .image-select-wrap{display:inline-block;width:46%;padding:0 5px;position:relative;margin-bottom:15px}
+#input_bricks_header_layout .image-select-wrap img, #input_bricks_footer_layout .image-select-wrap img, #input_bricks_social_layout .image-select-wrap img{width:100%}
+#input_bricks_header_layout .image-select:checked+.headerlayout, #input_bricks_footer_layout .image-select:checked+.headerlayout, #input_bricks_social_layout .image-select:checked+.headerlayout{box-shadow:1px 1px 10px 0 rgba(51, 51, 51, 0.24);border-left:3px solid #000}
+.wp-picker-container .wp-color-result.button{height:30px!important;margin:0!important;width:100%;box-shadow:none;border:0}
+.wp-picker-container .wp-color-result.button:hover{box-shadow:none}
+.wp-picker-container .wp-color-result.button .wp-color-result-text{line-height:30px;width:85%;height:30px;margin-left:auto;border:0;background:rgba(0, 0, 0, 0.27058823529411763);color:#fff;font-size:14px}
+.wp-picker-container .wp-picker-input-wrap{margin-top:10px}
+.customize-control{margin-bottom:20px!important}
+.customize-control select, #sub-accordion-section-bricks_social_section .customize-control input{height:34px!important;border-radius:3px;border:1px solid transparent;border-top:none;border-bottom:1px solid #ddd;-webkit-box-shadow:inset 1px 1px 5px 0 rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;box-shadow:inset 1px 1px 5px 0 rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff}
+.customize-control select:focus, #sub-accordion-section-bricks_social_section .customize-control input:focus{-webkit-box-shadow:inset 1px 1px 5px 0 rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;box-shadow:inset 1px 1px 5px 0 rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;outline:none;border:1px solid #ccc}
+.bricks_toggle_switch{display:inline-block;width:100%}
+.bricks_toggle_switch .customize-control-title.bricks_toggle_label{display:inline-block;vertical-align:middle}
+.bricks_toggle_switch .bricks_toggle{width:52px;height:25px;position:relative;float:right}
+.bricks_toggle_switch .bricks_toggle .bricks_toggle_checkbox{margin:0;opacity:0;width:0;height:0}
+.bricks_toggle_switch .bricks_toggle .bricks_toggle_label{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;-webkit-transition:0.4s;transition:0.4s;border-radius:50px}
+.bricks_toggle_switch .bricks_toggle .bricks_toggle_label::before{position:absolute;content:"";height:22px;width:22px;left:2px;top:1px;background-color:#fff;border-radius:50px;-webkit-transition:0.4s;transition:0.4s}
+.bricks_toggle_switch .bricks_toggle .bricks_toggle_checkbox:checked+.bricks_toggle_label{background-color:#008ec2}
+.bricks_toggle_switch .bricks_toggle .bricks_toggle_checkbox:focus+.bricks_toggle_label{box-shadow:0 0 1px #008ec2}
+.bricks_toggle_switch .bricks_toggle .bricks_toggle_checkbox:checked+.bricks_toggle_label::before{-webkit-transform:translateX(26px);-ms-transform:translateX(26px);transform:translateX(26px)}
