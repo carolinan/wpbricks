@@ -5,15 +5,13 @@ Tags: custom-background, custom-menu, featured-images
 Requires at least: 5.0
 Tested up to: 5.1.1
 Stable tag: 1.0.6
-Requires PHP: 5.2
+Requires PHP: 5.6
 Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-wpbricks WordPress Theme, Copyright 2017 Multidots
-wpbricks is distributed under the terms of the GNU GPL
-
-A starter theme called utility theme.
+WPbricks WordPress Theme, Copyright 2017 Multidots
+WPbricks is distributed under the terms of the GNU GPL
 
 == Description ==
 
@@ -28,6 +26,7 @@ WPBricks - WPBricks is a customizable Multipurpose Gutenberg compatible theme th
 ====== Credits ======
 
 * Based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Storefront (C) Automattic, Inc.,  [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
 
 ******** Font Awesome ********
@@ -44,9 +43,8 @@ Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 = License =
 
 * Images
-
-    * images/blog-default.jpg
-      - https://unsplash.com/photos/jmUAwCkB2X8
+All images in the images folder are created by the theme author and are
+covered by the same license as the theme, License: GNU General Public License v2 or later.
 
 == Frequently Asked Questions ==
 

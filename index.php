@@ -14,18 +14,18 @@
 
 get_header(); ?>
 
-    <div id="primary" class="content-area">
+	<div id="primary" class="content-area">
 
-        <main id="main" class="site-main">
-            <ul class="blog-list row">
+		<main id="main" class="site-main">
+			<ul class="blog-list row">
 
 				<?php
 				if ( have_posts() ) :
 
 					if ( is_home() && ! is_front_page() ) : ?>
-                        <header>
-                            <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-                        </header>
+						<header>
+							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+						</header>
 
 					<?php
 					endif;
@@ -49,10 +49,10 @@ get_header(); ?>
 					get_template_part( 'template-parts/content', 'home' );
 
 				endif; ?>
-            </ul>
-        </main><!-- #main -->
+			</ul>
+		</main><!-- #main -->
 
-    </div><!-- #primary -->
+	</div><!-- #primary -->
 
 <?php
 get_footer();

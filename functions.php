@@ -1,6 +1,6 @@
 <?php
 /**
- * wpbricks functions and definitions
+ * WPBricks functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -12,23 +12,19 @@
  */
 require get_template_directory() . '/inc/action.php';
 /**
- * included all the callback functions of action.
+ * Included all the callback functions of action.
  */
 require get_template_directory() . '/inc/action-function.php';
 
 /**
  * All the actions.
  */
+
 require get_template_directory() . '/inc/filter.php';
 /**
- * included all the callback functions of action.
+ * Included all the callback functions of action.
  */
 require get_template_directory() . '/inc/filter-function.php';
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -63,6 +59,6 @@ require get_template_directory() . '/inc/common-function.php';
 require get_template_directory() . '/inc/bricks-customizer-css.php';
 
 /**
- * customizer setting page.
+ * Customizer setting page.
  */
 require get_template_directory() . '/inc/bricks-settings-page.php';

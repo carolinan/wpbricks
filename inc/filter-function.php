@@ -1,12 +1,12 @@
 <?php
 /**
- * file include all the filters callback functions.
+ * File include all the filters callback functions.
  */
 
-/*
+/**
  * Filter function for excerpt read more
  */
 function wpbricks_excerpt_more() {
 	global $post;
-	return '... <a href="'. get_permalink($post->ID) . '">' . 'Read More &raquo;' . '</a>';
+	return '... <a href="' . esc_url( get_permalink($post->ID) ) . '">' . esc_html__( 'Read More &raquo;', 'wpbricks' ) . '</a>';
 }

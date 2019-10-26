@@ -1,11 +1,11 @@
 <?php
 /**
- * wpbricks Theme Customizer
+ * WPBricks Theme Customizer
  *
  * @package wpbricks
  */
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
@@ -17,6 +17,8 @@ function wpbricks_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_control( 'background_color' )->section = 'general_setting_section';
+	$wp_customize->get_control( 'background_color' )->priority = '110';
 }
 
 add_action( 'customize_register', 'wpbricks_customize_register' );
@@ -30,38 +32,14 @@ function wpbricks_customize_preview_js() {
 
 add_action( 'customize_preview_init', 'wpbricks_customize_preview_js' );
 
-$custom_header = array(
-	'default-image'          => '',
-	'width'                  => 1000,
-	'height'                 => 500,
-	'flex-height'            => false,
-	'flex-width'             => false,
-	'uploads'                => true,
-	'random-default'         => false,
-	'header-text'            => true,
-	'default-text-color'     => '',
-	'wp-head-callback'       => '',
-	'admin-head-callback'    => '',
-	'admin-preview-callback' => '',
-);
-add_theme_support( 'custom-header', $custom_header );
-
 function wpbricks_register_theme_customizer( $wp_customize ) {
 	/**
-	 * Bricks customizer handle clssses.
+	 * WPBricks customizer handle clssses.
 	 */
-	get_template_part('inc/bricks-customizer','classes') ;
-	//require get_template_directory() . '/inc/bricks-customizer-classes.php';
-
-	// Remove second for default
-	$wp_customize->remove_section( 'colors' );
-
-	$wp_customize->remove_section( 'header_image' );
-
-	$wp_customize->remove_section( 'background_image' );
+	require get_template_directory() . '/inc/bricks-customizer-classes.php';
 
 	/**
-	 * Bricks customize header section.
+	 * WPBricks customize header section.
 	 */
 	$wp_customize->add_panel( 'header_setings_panel', array(
 		'title'      => __( 'Header Settings', 'wpbricks' ),
@@ -84,7 +62,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize header setting.
+	 * WPBricks customize header setting.
 	 */
 	$wp_customize->add_setting( 'bricks_page_header_setting', array(
 		'default'           => false,
@@ -173,29 +151,29 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize header controls.
+	 * WPBricks customize header controls.
 	 */
-	$wp_customize->add_control( new WP_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_page_header_setting', array(
+	$wp_customize->add_control( new WPbricks_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_page_header_setting', array(
 		'label'   => __( 'Display Sticky Header Option Pagewise', 'wpbricks' ),
 		'type'    => 'checkbox',
 		'section' => 'header_setings_section',
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_header_sticky', array(
+	$wp_customize->add_control( new WPbricks_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_header_sticky', array(
 		'label'           => __( 'Header sticky', 'wpbricks' ),
 		'type'            => 'checkbox',
 		'section'         => 'header_setings_section',
 		'active_callback' => 'wpbricks_header_sticky_status'
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_header_transparent', array(
+	$wp_customize->add_control( new WPbricks_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_header_transparent', array(
 		'label'           => __( 'Header transparent', 'wpbricks' ),
 		'type'            => 'checkbox',
 		'section'         => 'header_setings_section',
 		'active_callback' => 'wpbricks_header_transparent_status',
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Range_Control( $wp_customize, 'bricks_logo_size', array(
+	$wp_customize->add_control( new WPbricks_Custom_Range_Control( $wp_customize, 'bricks_logo_size', array(
 		'label'       => __( 'Logo width', 'wpbricks' ),
 		'section'     => 'header_setings_section',
 		'active_callback' => 'wpbricks_header_logo_status',
@@ -221,8 +199,8 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'type'    => 'select',
 		'section' => 'header_setings_section',
 		'choices' => array(
-			'full-width'    => 'Full Width',
-			'content-width' => 'Content Width'
+			'full-width'    => __( 'Full Width', 'wpbricks' ),
+			'content-width' => __( 'Content Width', 'wpbricks' ),
 		)
 	) ) );
 
@@ -246,7 +224,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'section' => 'header_setings_section',
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Radio_Image_Control( $wp_customize, 'bricks_header_layout', array(
+	$wp_customize->add_control( new WPbricks_Custom_Radio_Image_Control( $wp_customize, 'bricks_header_layout', array(
 		'label'   => __( 'Header layout', 'wpbricks' ),
 		'section' => 'header_layout_section',
 		'choices' => array(
@@ -269,16 +247,16 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'type'    => 'select',
 		'section' => 'header_setings_section',
 		'choices' => array(
-			'none '  => 'None',
-			'solid'  => 'Solid',
-			'double' => 'Double',
-			'dotted' => 'Dotted',
-			'dashed' => 'Dashed',
-			'groove' => 'Groove',
-			'inset'  => 'Inset',
-			'outset' => 'Outset',
-			'ridge'  => 'Ridge',
-			'hidden' => 'Hidden'
+			'none '  => __( 'None', 'wpbricks' ),
+			'solid'  => __( 'Solid', 'wpbricks' ),
+			'double' => __( 'Double', 'wpbricks' ),
+			'dotted' => __( 'Dotted', 'wpbricks' ),
+			'dashed' => __( 'Dashed', 'wpbricks' ),
+			'groove' => __( 'Groove', 'wpbricks' ),
+			'inset'  => __( 'Inset', 'wpbricks' ),
+			'outset' => __( 'Outset', 'wpbricks' ),
+			'ridge'  => __( 'Ridge', 'wpbricks' ),
+			'hidden' => __( 'Hidden', 'wpbricks' ),
 		)
 	) ) );
 
@@ -288,7 +266,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) ) );
 
 	/**
-	 * Bricks customize general section.
+	 * WPBricks customize general section.
 	 */
 	$wp_customize->add_section( 'general_setting_section', array(
 		'title'    => __( 'General Settings', 'wpbricks' ),
@@ -296,7 +274,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize general setting.
+	 * WPBricks customize general setting.
 	 */
 	$wp_customize->add_setting( 'bricks_general_text_font_family', array(
 		'default'           => 'unset',
@@ -322,24 +300,6 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'sanitize_callback' => 'wpbricks_sanitize_select'
 	) );
 
-	$wp_customize->add_setting( 'bricks_general_background_selection', array(
-		'default'           => false,
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_checkbox'
-	) );
-
-	$wp_customize->add_setting( 'bricks_general_background', array(
-		'default'           => '',
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'esc_url'
-	) );
-
-	$wp_customize->add_setting( 'background_color', array(
-		'default'           => '#f7f7f7',
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color_no_hash'
-	) );
-
 	$wp_customize->add_setting( 'bricks_general_text_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
@@ -347,28 +307,27 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize general controls.
+	 * WPBricks customize general controls.
 	 */
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bricks_general_text_font_family', array(
 		'label'   => __( 'Text font family ', 'wpbricks' ),
 		'type'    => 'select',
 		'section' => 'general_setting_section',
 		'choices' => array(
-			'unset'                              => 'Default',
-			'unset'                              => 'Default',
-			'helvetica'                          => 'Helvetica',
-			'verdana'                            => 'Verdana',
-			'arial'                              => 'Arial',
-			'times'                              => 'Times',
-			'georgia'                            => 'Georgia',
-			'courier'                            => 'Courier',
-			'-webkit-body'                       => 'Webkit-Body',
-			'inherit'                            => 'Inherit',
-			'initial'                            => 'Initial',
-			'monospace'                          => 'Monospace',
-			'none'                               => 'None',
-			'sans-serif'                         => 'Sans-Serif',
-			'serif'                              => 'Serif',
+			'unset'                              => __( 'Default', 'wpbricks' ),
+			'helvetica'                          => __( 'Helvetica', 'wpbricks' ),
+			'verdana'                            => __( 'Verdana', 'wpbricks' ),
+			'arial'                              => __( 'Arial', 'wpbricks' ),
+			'times'                              => __( 'Times', 'wpbricks' ),
+			'georgia'                            => __( 'Georgia', 'wpbricks' ),
+			'courier'                            => __( 'Courier', 'wpbricks' ),
+			'-webkit-body'                       => __( 'Webkit-Body', 'wpbricks' ),
+			'inherit'                            => __( 'Inherit', 'wpbricks' ),
+			'initial'                            => __( 'Initial', 'wpbricks' ),
+			'monospace'                          => __( 'Monospace', 'wpbricks' ),
+			'none'                               => __( 'None', 'wpbricks' ),
+			'sans-serif'                         => __( 'Sans-Serif', 'wpbricks' ),
+			'serif'                              => __( 'Serif', 'wpbricks' ),
 		)
 	) ) );
 
@@ -377,13 +336,13 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'type'    => 'select',
 		'section' => 'general_setting_section',
 		'choices' => array(
-			'unset'   => 'Default',
-			'initial' => 'Initial',
-			'normal'  => 'Normal',
-			'bold'    => 'Bold',
-			'bolder'  => 'Bolder',
-			'lighter' => 'Lighter',
-			'inherit' => 'Inherit',
+			'unset'   => __( 'Default', 'wpbricks' ),
+			'initial' => __( 'Initial', 'wpbricks' ),
+			'normal'  => __( 'Normal', 'wpbricks' ),
+			'bold'    => __( 'Bold', 'wpbricks' ),
+			'bolder'  => __( 'Bolder', 'wpbricks' ),
+			'lighter' => __( 'Lighter', 'wpbricks' ),
+			'inherit' => __( 'Inherit', 'wpbricks' ),
 		)
 	) ) );
 
@@ -398,29 +357,11 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'type'    => 'select',
 		'section' => 'general_setting_section',
 		'choices' => array(
-			'none'       => 'Default',
-			'capitalize' => 'Capitalize',
-			'lowercase'  => 'Lowercase',
-			'uppercase'  => 'Uppercase',
+			'none'       => __( 'Default', 'wpbricks' ),
+			'capitalize' => __( 'Capitalize', 'wpbricks' ),
+			'lowercase'  => __( 'Lowercase', 'wpbricks' ),
+			'uppercase'  => __( 'Uppercase', 'wpbricks' ),
 		)
-	) ) );
-
-	$wp_customize->add_control( new WP_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_general_background_selection', array(
-		'label'   => __( 'Set background image', 'wpbricks' ),
-		'type'    => 'checkbox',
-		'section' => 'general_setting_section',
-	) ) );
-
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'bricks_general_background', array(
-		'label'           => __( 'Background image', 'wpbricks' ),
-		'section'         => 'general_setting_section',
-		'active_callback' => 'wpbricks_general_background_status',
-	) ) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
-		'label'           => __( 'Background color', 'wpbricks' ),
-		'section'         => 'general_setting_section',
-		'active_callback' => 'wpbricks_general_background_color_status',
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bricks_general_text_color', array(
@@ -429,7 +370,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) ) );
 
 	/**
-	 * Bricks customize container section.
+	 * WPBricks customize container section.
 	 */
 	$wp_customize->add_section( 'container_setting_section', array(
 		'title'      => __( "Container Setting", "wpbricks" ),
@@ -438,7 +379,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize container setting.
+	 * WPBricks customize container setting.
 	 */
 	$wp_customize->add_setting( 'bricks_container_size', array(
 		'default'           => 'container-content-width',
@@ -447,20 +388,20 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize container controls.
+	 * WPBricks customize container controls.
 	 */
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bricks_container_size', array(
 		'label'   => __( 'Container width', 'wpbricks' ),
 		'type'    => 'select',
 		'section' => 'container_setting_section',
 		'choices' => array(
-			'container-full-width'    => 'Full Width',
-			'container-content-width' => 'Content Width'
+			'container-full-width'    => __( 'Full Width', 'wpbricks' ),
+			'container-content-width' => __( 'Content Width', 'wpbricks' ),
 		)
 	) ) );
 
 	/**
-	 * Bricks customize footer section.
+	 * WPBricks customize footer section.
 	 */
 	$wp_customize->add_panel( 'footer_setings_panel', array(
 		'title'      => __( 'Footer Settings', 'wpbricks' ),
@@ -490,7 +431,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize footer setting.
+	 * WPBricks customize footer setting.
 	 */
 	$wp_customize->add_setting( 'bricks_footer_size', array(
 		'default'           => 'footer-full-width',
@@ -653,15 +594,15 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**
-	 * Bricks customize footer controls.
+	 * WPBricks customize footer controls.
 	 */
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bricks_footer_size', array(
 		'label'   => __( 'Footer width', 'wpbricks' ),
 		'type'    => 'select',
 		'section' => 'footer_settings_section',
 		'choices' => array(
-			'footer-full-width'    => 'Full Width',
-			'footer-content-width' => 'Content Width',
+			'footer-full-width'    => __( 'Full Width', 'wpbricks' ),
+			'footer-content-width' => __( 'Content Width', 'wpbricks' ),
 		)
 	) ) );
 
@@ -670,8 +611,8 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'type'    => 'select',
 		'section' => 'footer_settings_section',
 		'choices' => array(
-			'background-color' => 'Background Color',
-			'background-image' => 'Background Image',
+			'background-color' => __( 'Background Color', 'wpbricks' ),
+			'background-image' => __( 'Background Image', 'wpbricks' ),
 		)
 	) ) );
 
@@ -687,7 +628,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'active_callback' => 'wpbricks_footer_bg_image_status',
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Opacity_Range_Control( $wp_customize, 'bricks_footer_bg_opacity', array(
+	$wp_customize->add_control( new WPBricks_Custom_Opacity_Range_Control( $wp_customize, 'bricks_footer_bg_opacity', array(
 		'label'           => __( 'Background opacity', 'wpbricks' ),
 		'section'     => 'footer_settings_section',
 		'active_callback' => 'wpbricks_footer_bg_image_status',
@@ -719,16 +660,16 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'type'    => 'select',
 		'section' => 'footer_settings_section',
 		'choices' => array(
-			'none '  => 'None',
-			'solid'  => 'Solid',
-			'double' => 'Double',
-			'dotted' => 'Dotted',
-			'dashed' => 'Dashed',
-			'groove' => 'Groove',
-			'inset'  => 'Inset',
-			'outset' => 'Outset',
-			'ridge'  => 'Ridge',
-			'hidden' => 'Hidden',
+			'none '  => __( 'None', 'wpbricks' ),
+			'solid'  => __( 'Solid', 'wpbricks' ),
+			'double' => __( 'Double', 'wpbricks' ),
+			'dotted' => __( 'Dotted', 'wpbricks' ),
+			'dashed' => __( 'Dashed', 'wpbricks' ),
+			'groove' => __( 'Groove', 'wpbricks' ),
+			'inset'  => __( 'Inset', 'wpbricks' ),
+			'outset' => __( 'Outset', 'wpbricks' ),
+			'ridge'  => __( 'Ridge', 'wpbricks' ),
+			'hidden' => __( 'Hidden', 'wpbricks' ),
 		)
 	) ) );
 
@@ -737,7 +678,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'section' => 'footer_settings_section',
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_copy_write_text_status', array(
+	$wp_customize->add_control( new WPBricks_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_copy_write_text_status', array(
 		'label'   => __( 'Copyright Status', 'wpbricks' ),
 		'type'    => 'checkbox',
 		'section' => 'footer_settings_section',
@@ -750,13 +691,13 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'active_callback' => 'wpbricks_text_setting_status',
 	) );
 
-	$wp_customize->add_control( new WP_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_layout_status', array(
+	$wp_customize->add_control( new WPBricks_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_layout_status', array(
 		'label'   => __( 'Layout Status', 'wpbricks' ),
 		'type'    => 'checkbox',
 		'section' => 'footer_layout_section',
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Radio_Image_Control( $wp_customize, 'bricks_footer_layout', array(
+	$wp_customize->add_control( new WPBricks_Custom_Radio_Image_Control( $wp_customize, 'bricks_footer_layout', array(
 		'label'           => __( 'Footer column layout', 'wpbricks' ),
 		'type'            => 'radio',
 		'section'         => 'footer_layout_section',
@@ -801,14 +742,14 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'active_callback' => 'wpbricks_footer_widgets_4_status',
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_social_icon_status', array(
+	$wp_customize->add_control( new WPBricks_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_social_icon_status', array(
 		'label'    => __( 'Social menu', 'wpbricks' ),
 		'type'     => 'checkbox',
 		'section'  => 'bricks_social_section',
 		'priority' => 1,
 	) ) );
 
-	$wp_customize->add_control( new WP_Custom_Radio_Image_Control( $wp_customize, 'bricks_social_layout', array(
+	$wp_customize->add_control( new WPBricks_Custom_Radio_Image_Control( $wp_customize, 'bricks_social_layout', array(
 		'label'           => __( 'Social menu layout', 'wpbricks' ),
 		'type'            => 'radio',
 		'priority'        => 2,
@@ -843,7 +784,6 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'priority'        => 5,
 		'active_callback' => 'wpbricks_social_icon',
 	) );
-
 
 	$wp_customize->add_control( 'Twitter', array(
 		'label'           => __( "Twitter url", 'wpbricks' ),

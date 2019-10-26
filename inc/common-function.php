@@ -7,40 +7,8 @@
  * *
  * Checks to see if we're on the homepage or not.
  */
-
 function wpbricks_is_frontpage() {
 	return ( is_front_page() && ! is_home() );
-}
-
-/**
- * Apply inline style to the Storefront header.
- *
- * @uses  get_header_image()
- * @since  2.0.0
- */
-function wpbricks_header_styles() {
-	$is_header_image = get_header_image();
-
-	if ( $is_header_image ) {
-		$header_bg_image = 'url(' . esc_url( $is_header_image ) . ')';
-	} else {
-		$header_bg_image = 'none';
-	}
-	if ( $header_bg_image !== 'none' ) {
-		$styles = apply_filters( 'wpbricks_header_styles', array(
-			'background-image' => $header_bg_image,
-		) );
-	} else {
-		$styles = apply_filters( 'wpbricks_header_styles', array(
-			'background-color' => '#fff',
-			'color'            => '#000'
-		) );
-	}
-
-
-	foreach ( $styles as $style => $value ) {
-		echo esc_attr( $style . ': ' . $value . '; ' );
-	}
 }
 
 /**

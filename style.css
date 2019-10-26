@@ -1,11 +1,11 @@
-/* wpbricks
+/*
 Theme Name: WPBricks
 Theme URI: https://www.multidots.com/
 Author: Multidots
 Author URI: https://profiles.wordpress.org/dots
 Tags: custom-background, custom-menu, featured-images
 Text Domain: wpbricks
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Description: WPBricks is a customizable Multipurpose Gutenberg compatible theme that lets easily create a website the way you want. It comes with a widgetized templates, customizable header/footer with various theme options in the customizer, and many more to cover all the essential features you need to build a stunning website.(Multipurpose Solution / Gutenberg / Tested with VIP Coding Standards / Responsive / Extra Customization Options)
@@ -87,7 +87,7 @@ div.site-content .widget-area{width:30%;float:right;padding:50px 0 20px 30px}
 .widget-area label{width:100%;margin:0}
 .widget-area section.widget_search form span{display:block;border:0;font-size:18px!important;font-weight:600;margin:0 0 25px 0!important;color:#252525!important;padding:0}
 .widget-area section.widget_search form input.search-field{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-bottom:10px;padding:20px;border:solid 1px rgba(204, 204, 204, 0.72);width:100%;height:35px;font-weight:400;background:#fff}
-.widget-area section.widget_search form input.search-submit{width:120px;padding:7px 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-transform:uppercase;font-size:13px;background:#ff7013;color:#fff;border:1px solid #ff7013;-webkit-transition:0.5s all;-moz-transition:0.5s all;-o-transition:0.5s all;transition:0.5s all;margin:0 auto;outline:none}
+.widget-area section.widget_search form input.search-submit{width:120px;padding:7px 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-transform:uppercase;font-size:13px;background:#ff7013;color:#fff;border:1px solid #ff7013;-webkit-transition:0.5s all;-moz-transition:0.5s all;-o-transition:0.5s all;transition:0.5s all;margin:0 auto}
 .widget-area section.widget_search form input.search-submit:hover{background:#fff;color:#fe6826}
 .widget-area h2.widget-title{border:0;font-size:18px!important;font-weight:600;margin:0 0 25px 0!important;color:#252525!important;padding:0}
 .widget-area ul li{margin-bottom:10px}
@@ -185,7 +185,7 @@ div.comments-area form#commentform p.logged-in-as{margin-bottom:15px}
 div.comments-area form#commentform p.logged-in-as a{color:#40729c}
 div.comments-area form#commentform .comment-form-comment{margin:0}
 div.comments-area form#commentform .comment-form-comment label{display:block;margin-bottom:10px;color:#333;font-size:20px;font-weight:normal}
-div.comments-area form#commentform .comment-form-comment textarea{width:100%;padding:10px 15px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:none;height:150px;resize:none;border:none;background:#fafafa!important;z-index:2;position:relative;line-height:18px;font-size:16px;transition:none 0s ease 0s;margin:0}
+div.comments-area form#commentform .comment-form-comment textarea{width:100%;padding:10px 15px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:150px;resize:none;border:none;background:#fafafa!important;z-index:2;position:relative;line-height:18px;font-size:16px;transition:none 0s ease 0s;margin:0}
 div.comments-area form#commentform .form-submit input{background:#333;color:#fff;width:120px;padding:7px 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-transform:uppercase;font-size:13px;border:1px solid #333;-webkit-transition:0.5s all;-moz-transition:0.5s all;-o-transition:0.5s all;transition:0.5s all}
 header.entry-header .entry-meta span a i{margin-right:10px;display:inline-block}
 ol.comment-list li.comment{background:#fff;border:1px solid #ccc;margin-bottom:30px;padding:20px 20px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -241,7 +241,7 @@ header.page-header{border-bottom:0;padding-bottom:0;margin:0;margin-bottom:50px}
 .search .site-content section.content-area .page-content form.search-form label input{width:100%;height:35px;padding:0 10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border:1px solid #ccc;margin-bottom:10px}
 .search .site-content section.content-area .page-content form.search-form input.search-submit:hover{background:#fff;color:#333}
 .comment-respond p label{display:block;margin-bottom:10px;color:#333;font-size:20px;font-weight:normal}
-.comment-respond p input{width:100%;padding:6px 10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:none;resize:none;border:1px solid #ccc;margin-bottom:0}
+.comment-respond p input{width:100%;padding:6px 10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;resize:none;border:1px solid #ccc;margin-bottom:0}
 div.site-content aside.widget-area ul li ul li{background:none;padding-left:0}
 div.site-content aside.widget-area ul li ul li li{padding-left:0}
 nav.navigation{float:left;width:100%;padding:20px 20px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -361,14 +361,14 @@ header.woocommerce-products-header h1{margin:0 0 15px 0;text-transform:uppercase
 .footer-content .footer-logo-img img{width:180px}
 .footer-content h6{text-transform:capitalize;color:#000;font-size:18px;line-height:27px;margin:0;margin-bottom:15px}
 .footer-newsletter form.md-newsletter-form{position:relative;z-index:5}
-.footer-newsletter form.md-newsletter-form input{width:262px;height:46px;background:#fff;border-radius:25px;border:1px solid #e8e8f9;padding-left:20px;color:#9d9d9d;font-weight:400;font-size:14px;position:relative;padding-right:40px;-webkit-transition:0.5s all linear;-moz-transition:0.5s all linear;transition:0.5s all linear;outline:none;max-width:100%}
-.footer-newsletter form.md-newsletter-form button{position:absolute;font-size:18px;background:transparent;border:0;top:50%;right:15px;transform:translateY(-50%);-webkit-transform:translateY(-50%);color:#c3c3c3;outline:none;width:15px}
+.footer-newsletter form.md-newsletter-form input{width:262px;height:46px;background:#fff;border-radius:25px;border:1px solid #e8e8f9;padding-left:20px;color:#9d9d9d;font-weight:400;font-size:14px;position:relative;padding-right:40px;-webkit-transition:0.5s all linear;-moz-transition:0.5s all linear;transition:0.5s all linear;max-width:100%}
+.footer-newsletter form.md-newsletter-form button{position:absolute;font-size:18px;background:transparent;border:0;top:50%;right:15px;transform:translateY(-50%);-webkit-transform:translateY(-50%);color:#c3c3c3;width:15px}
 .footer-newsletter form.md-newsletter-form button i{font-size:13px;font-weight:normal;position:absolute;top:50%;-webkit-transform:translate(0, -50%);-moz-transform:translate(0, -50%);-ms-transform:translate(0, -50%);right:0}
 .single .SideBar{display:inline-block;width:30%;padding:50px 0 20px 30px}
 .single div.site-content .content-area{padding:50px 0 0 0;margin-bottom:0;padding-bottom:0;width:70%;float:left;display:inline-block}
 
 /* comments-area */
-.comments-area form input{background:#fafafa;font-weight:500;font-size:13px;line-height:18px;color:#222;border:0;box-shadow:none;outline:0;padding:16px 30px 15px;border-radius:0;transition:all 0.3s ease;box-sizing:border-box!important;width:100%;display:block;height:49px}
+.comments-area form input{background:#fafafa;font-weight:500;font-size:13px;line-height:18px;color:#222;border:0;box-shadow:none;padding:16px 30px 15px;border-radius:0;transition:all 0.3s ease;box-sizing:border-box!important;width:100%;display:block;height:49px}
 div.comments-area form#commentform .form-submit input#submit{text-indent:-10px;background:#f47b1f;color:#fff;-webkit-box-shadow:0 10px 50px rgba(58, 58, 58, 0.26);-moz-box-shadow:0 10px 50px rgba(58, 58, 58, 0.26);box-shadow:0 10px 50px rgba(58, 58, 58, 0.26);line-height:1px;padding:23px;text-transform:capitalize;transition:0.3s all linear;min-width:186px;overflow:hidden;-webkit-border-radius:4px;-moz-border-radius:4px;font-size:15px;border:none;display:inline-block}
 .comments-area form label{margin:0;padding:0;font-size:20px;color:#252525;line-height:25px;margin-bottom:20px;margin-top:10px}
 div.comments-area h3#reply-title{margin:0;padding:0;font-size:20px;color:#252525;line-height:25px;margin-bottom:20px}
@@ -399,7 +399,7 @@ body.search .content-area, .archive .content-area{float:left;width:70%;padding:5
 .post-head .feature-img img{width:100%}
 body.home .site-content .content-area{padding-top:0}
 
-/* bricks custom css */
+/*WPBricks custom css */
 .bricks-settings h1{font-weight:500!important;color:#ff8e01}
 .bricks-settings .bricks-form h2{line-height:normal}
 .bricks-settings .bricks-form .submit input[type="submit"]{background-color:#ff8e01;border:1px solid #ff8e01;box-shadow:none;text-shadow:none;border-radius:1px;padding:12px;line-height:normal;width:auto;height:auto}
@@ -427,9 +427,11 @@ table{margin:0 0 1rem;border-collapse:collapse;width:100%;font-family:-apple-sys
 table td,table th{padding:0.5em;border:1px solid #767676;word-break:break-all}
 .site-header .main-navigation li a:hover{color:#ff7013}
 .site-header ul li .menu-btn::before, .site-header ul li .menu-btn::after{background:#fff}
-.site-branding .site-title-hide{display:none}
+
 .comment-respond input[type="checkbox"]{width:auto;display:inline-block;vertical-align:middle;margin:0;margin-right:10px}
 .comment-respond form label{font-size:16px!important}
 .comment-respond form .comment-form-cookies-consent label{display:inline-block;vertical-align:middle;margin:0}
 .post-content{display:inline-block;width:100%}
 .container-content-width .site-content {min-height:710px}
+
+.menu-btn{background-color: transparent;border: none}

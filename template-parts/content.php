@@ -11,7 +11,7 @@
 
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-    <div class="post-head">
+	<div class="post-head">
 
 		<?php
 		if ( is_singular() ) :
@@ -24,40 +24,44 @@
 		$avatar_full_url = esc_url( get_avatar_url( $author_id ) );
 		$avatar_url      = explode( "?", $avatar_full_url );
 		?>
-        <ul class="publish-details">
+		<ul class="publish-details">
 			<?php
 			if ( 'post' === get_post_type() ) : ?>
-                <li class="post_date">
-                    <i class="fa fa fa-clock-o"></i>
+				<li class="post_date">
+					<i class="fa fa fa-clock-o"></i>
 					<?php wpbricks_posted_on(); ?>
-                </li><!-- .entry-meta -->
-			<?php
-			endif; ?>
-            <li class="comments_num">
-                <i class="fa fa-comment-o"></i><?php echo esc_html( $post->comment_count, 'wpbricks' ); ?>
-            </li>
-            <li class="post_by">
+				</li><!-- .entry-meta -->
+				<?php
+			endif;
+			?>
+			<li class="comments_num">
+				<i class="fa fa-comment-o"></i><?php echo esc_html( $post->comment_count ); ?>
+			</li>
+			<li class="post_by">
 				<span class="sub-title">
-					Posted by : <?php echo esc_html( $author, 'wpbricks' ); ?>
+					<?php
+					/* Translators: %S = author name */
+					printf( __( 'Posted by %s', 'wpbricks' ), $author );
+					?>
 				</span>
-            </li>
-        </ul>
-        <div class="feature-img">
+			</li>
+		</ul>
+		<?php
+		if ( has_post_thumbnail() ) {
+			?>
+			<div class="feature-img">
+				<?php the_post_thumbnail(); ?>
+			</div>
 			<?php
-			global $post;
-			$thumbnail_id  = get_post_thumbnail_id( $post->ID );
-			$thumbnail_url = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail-size', true );
-			if ( ! empty( $thumbnail_id ) ) {
-				the_post_thumbnail();
-			} ?>
-        </div>
-    </div><!-- .entry-header -->
+		}
+		?>
+	</div><!-- .entry-header -->
 
-    <div class="post-content">
+	<div class="post-content">
 		<?php
 		if ( is_category() || is_archive() ) {
 			the_excerpt();
-		} else { 
+		} else {
 			the_content( sprintf(
 				wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
@@ -77,6 +81,6 @@
 			'after'  => '</div>',
 		) );
 		?>
-    </div><!-- .entry-content -->
+	</div><!-- .entry-content -->
 
 </div><!-- #post-<?php the_ID(); ?> -->
