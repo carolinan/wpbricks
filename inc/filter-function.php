@@ -1,6 +1,8 @@
 <?php
 /**
  * File include all the filters callback functions.
+ *
+ * @package wpbricks
  */
 
 /**
@@ -8,5 +10,5 @@
  */
 function wpbricks_excerpt_more() {
 	global $post;
-	return '... <a href="' . esc_url( get_permalink($post->ID) ) . '">' . esc_html__( 'Read More &raquo;', 'wpbricks' ) . '</a>';
+	return '... <a href="' . esc_url( get_permalink( $post->ID ) ) . '">' . esc_html__( 'Read More &raquo;', 'wpbricks' ) . '</a>';
 }

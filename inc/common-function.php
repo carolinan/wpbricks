@@ -1,10 +1,11 @@
 <?php
 /**
  * All the additional functions are in this file.
+ *
+ * @package wpbricks
  */
 
-/*
- * *
+/**
  * Checks to see if we're on the homepage or not.
  */
 function wpbricks_is_frontpage() {
@@ -19,8 +20,7 @@ function wpbricks_is_frontpage() {
  * @return bool
  */
 function wpbricks_sanitize_checkbox( $input ) {
-
-	//returns true if checkbox is checked
+	// Returns true if checkbox is checked.
 	return ( ! empty( $input ) ? true : false );
 }
 
@@ -34,13 +34,13 @@ function wpbricks_sanitize_checkbox( $input ) {
  */
 function wpbricks_sanitize_select( $input, $setting ) {
 
-	//input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
+	// Input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only.
 	$input = sanitize_key( $input );
 
-	//get the list of possible select options
+	// Get the list of possible select options.
 	$choices = $setting->manager->get_control( $setting->id )->choices;
 
-	//return input if valid or return default option
+	// Return input if valid or return default option.
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 
 }
@@ -70,13 +70,13 @@ function wpbricks_sanitize_opacitybox( $input ) {
  */
 function wpbricks_sanitize_radio( $input, $setting ) {
 
-	//input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
+	// Input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only.
 	$input = sanitize_key( $input );
 
-	//get the list of possible radio box options
+	// Get the list of possible radio box options.
 	$choices = $setting->manager->get_control( $setting->id )->choices;
 
-	//return input if valid or return default option
+	// Return input if valid or return default option.
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 
 }

@@ -17,8 +17,8 @@ function wpbricks_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-	$wp_customize->get_control( 'background_color' )->section = 'general_setting_section';
-	$wp_customize->get_control( 'background_color' )->priority = '110';
+	$wp_customize->get_control( 'background_color' )->section   = 'general_setting_section';
+	$wp_customize->get_control( 'background_color' )->priority  = '110';
 }
 
 add_action( 'customize_register', 'wpbricks_customize_register' );
@@ -51,14 +51,14 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'title'      => __( 'Basic setting', 'wpbricks' ),
 		'priority'   => 1,
 		'capability' => 'edit_theme_options',
-		'panel'      => 'header_setings_panel'
+		'panel'      => 'header_setings_panel',
 	) );
 
 	$wp_customize->add_section( 'header_layout_section', array(
-		'title'      => __( "Layouts", "wpbricks" ),
+		'title'      => __( 'Layouts', 'wpbricks' ),
 		'priority'   => 2,
 		'capability' => 'edit_theme_options',
-		'panel'      => 'header_setings_panel'
+		'panel'      => 'header_setings_panel',
 	) );
 
 	/**
@@ -68,86 +68,86 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'default'           => false,
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_checkbox'
+		'sanitize_callback' => 'wpbricks_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_sticky', array(
 		'default'           => false,
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_checkbox'
+		'sanitize_callback' => 'wpbricks_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_transparent', array(
 		'default'           => false,
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_checkbox'
+		'sanitize_callback' => 'wpbricks_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_setting( 'bricks_logo_size', array(
 		'default'           => '200',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'absint'
+		'sanitize_callback' => 'absint',
 	) );
 
 	$wp_customize->add_setting( 'bricks_site_title_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_site_description_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_size', array(
 		'default'           => 'full-width',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_bg_color', array(
 		'default'           => '#fff',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_menu_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_sub_menu_bg_color', array(
 		'default'           => '#fff',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_sub_menu_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_layout', array(
 		'default'           => 'left-logo-right-menu',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_bottom_border', array(
 		'default'           => 'hidden',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_header_bottom_border_color', array(
 		'default'           => '#fff',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	/**
@@ -163,7 +163,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'label'           => __( 'Header sticky', 'wpbricks' ),
 		'type'            => 'checkbox',
 		'section'         => 'header_setings_section',
-		'active_callback' => 'wpbricks_header_sticky_status'
+		'active_callback' => 'wpbricks_header_sticky_status',
 	) ) );
 
 	$wp_customize->add_control( new WPbricks_Custom_Toggle_Checkbox_control( $wp_customize, 'bricks_header_transparent', array(
@@ -174,10 +174,10 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) ) );
 
 	$wp_customize->add_control( new WPbricks_Custom_Range_Control( $wp_customize, 'bricks_logo_size', array(
-		'label'       => __( 'Logo width', 'wpbricks' ),
-		'section'     => 'header_setings_section',
+		'label'           => __( 'Logo width', 'wpbricks' ),
+		'section'         => 'header_setings_section',
 		'active_callback' => 'wpbricks_header_logo_status',
-		'input_attrs' => array(
+		'input_attrs'     => array(
 			'min'  => 100,
 			'step' => 1,
 			'max'  => 250
@@ -279,31 +279,31 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'bricks_general_text_font_family', array(
 		'default'           => 'unset',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_general_text_font_weight', array(
 		'default'           => 'initial',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_general_text_font_size', array(
 		'default'           => 'initial',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'absint'
+		'sanitize_callback' => 'absint',
 	) );
 
 	$wp_customize->add_setting( 'bricks_general_text_font_transform', array(
 		'default'           => 'none',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_general_text_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	/**
@@ -314,20 +314,20 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'type'    => 'select',
 		'section' => 'general_setting_section',
 		'choices' => array(
-			'unset'                              => __( 'Default', 'wpbricks' ),
-			'helvetica'                          => __( 'Helvetica', 'wpbricks' ),
-			'verdana'                            => __( 'Verdana', 'wpbricks' ),
-			'arial'                              => __( 'Arial', 'wpbricks' ),
-			'times'                              => __( 'Times', 'wpbricks' ),
-			'georgia'                            => __( 'Georgia', 'wpbricks' ),
-			'courier'                            => __( 'Courier', 'wpbricks' ),
-			'-webkit-body'                       => __( 'Webkit-Body', 'wpbricks' ),
-			'inherit'                            => __( 'Inherit', 'wpbricks' ),
-			'initial'                            => __( 'Initial', 'wpbricks' ),
-			'monospace'                          => __( 'Monospace', 'wpbricks' ),
-			'none'                               => __( 'None', 'wpbricks' ),
-			'sans-serif'                         => __( 'Sans-Serif', 'wpbricks' ),
-			'serif'                              => __( 'Serif', 'wpbricks' ),
+			'unset'        => __( 'Default', 'wpbricks' ),
+			'helvetica'    => __( 'Helvetica', 'wpbricks' ),
+			'verdana'      => __( 'Verdana', 'wpbricks' ),
+			'arial'        => __( 'Arial', 'wpbricks' ),
+			'times'        => __( 'Times', 'wpbricks' ),
+			'georgia'      => __( 'Georgia', 'wpbricks' ),
+			'courier'      => __( 'Courier', 'wpbricks' ),
+			'-webkit-body' => __( 'Webkit-Body', 'wpbricks' ),
+			'inherit'      => __( 'Inherit', 'wpbricks' ),
+			'initial'      => __( 'Initial', 'wpbricks' ),
+			'monospace'    => __( 'Monospace', 'wpbricks' ),
+			'none'         => __( 'None', 'wpbricks' ),
+			'sans-serif'   => __( 'Sans-Serif', 'wpbricks' ),
+			'serif'        => __( 'Serif', 'wpbricks' ),
 		)
 	) ) );
 
@@ -373,7 +373,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	 * WPBricks customize container section.
 	 */
 	$wp_customize->add_section( 'container_setting_section', array(
-		'title'      => __( "Container Setting", "wpbricks" ),
+		'title'      => __( 'Container Setting', 'wpbricks' ),
 		'priority'   => 41,
 		'capability' => 'edit_theme_options',
 	) );
@@ -384,7 +384,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'bricks_container_size', array(
 		'default'           => 'container-content-width',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	/**
@@ -397,7 +397,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'choices' => array(
 			'container-full-width'    => __( 'Full Width', 'wpbricks' ),
 			'container-content-width' => __( 'Content Width', 'wpbricks' ),
-		)
+		),
 	) ) );
 
 	/**
@@ -413,14 +413,14 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 		'title'      => __( 'Basic Settings', 'wpbricks' ),
 		'priority'   => 1,
 		'capability' => 'edit_theme_options',
-		'panel'      => 'footer_setings_panel'
+		'panel'      => 'footer_setings_panel',
 	) );
 
 	$wp_customize->add_section( 'footer_layout_section', array(
-		'title'      => __( "Layouts", 'wpbricks' ),
+		'title'      => __( 'Layouts', 'wpbricks' ),
 		'priority'   => 2,
 		'capability' => 'edit_theme_options',
-		'panel'      => 'footer_setings_panel'
+		'panel'      => 'footer_setings_panel',
 	) );
 
 	$wp_customize->add_section( 'bricks_social_section', array(
@@ -436,161 +436,161 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'bricks_footer_size', array(
 		'default'           => 'footer-full-width',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_background_selection', array(
 		'default'           => 'background-color',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_bg_image', array(
 		'default'           => '',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'esc_url'
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_bg_image_overlay', array(
 		'default'           => '#fff',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_bg_opacity', array(
 		'default'           => '0',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_opacitybox'
+		'sanitize_callback' => 'wpbricks_sanitize_opacitybox',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_bg_color', array(
 		'default'           => '#eeeeee',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_title_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_text_color', array(
 		'default'           => '#000',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_top_border', array(
 		'default'           => 'hidden',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_top_border_color', array(
 		'default'           => '#eeeeee',
 		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	$wp_customize->add_setting( 'bricks_copy_write_text_status', array(
 		'default'           => true,
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_checkbox'
+		'sanitize_callback' => 'wpbricks_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_setting( 'text_setting', array(
-		'default'           => 'Proudly powered by WordPress.',
+		'default'           => __( 'Proudly powered by WordPress.', 'wpbricks' ),
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wp_kses_post'
+		'sanitize_callback' => 'wp_kses_post',
 	) );
 
 	$wp_customize->add_setting( 'bricks_layout_status', array(
 		'default'           => false,
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_checkbox'
+		'sanitize_callback' => 'wpbricks_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_layout', array(
 		'default'           => '4',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_radio'
+		'sanitize_callback' => 'wpbricks_sanitize_radio',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_widgets_1', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_widgets_2', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_widgets_3', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_footer_widgets_4', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_select'
+		'sanitize_callback' => 'wpbricks_sanitize_select',
 	) );
 
 	$wp_customize->add_setting( 'bricks_social_icon_status', array(
 		'default'           => false,
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_checkbox'
+		'sanitize_callback' => 'wpbricks_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_setting( 'bricks_social_layout', array(
 		'default'           => 'right-menu',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'wpbricks_sanitize_radio'
+		'sanitize_callback' => 'wpbricks_sanitize_radio',
 	) );
 
 	$wp_customize->add_setting( 'Facebook', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url'
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 
 	$wp_customize->add_setting( 'Google_plus', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url'
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 
 	$wp_customize->add_setting( 'Linkedin', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url'
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 
 	$wp_customize->add_setting( 'Twitter', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url'
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 
 	$wp_customize->add_setting( 'Insta', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url'
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 
 	$wp_customize->add_setting( 'pinterest', array(
 		'type'              => 'theme_mod',
 		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url'
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 
 	/**
@@ -630,19 +630,19 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 
 	$wp_customize->add_control( new WPBricks_Custom_Opacity_Range_Control( $wp_customize, 'bricks_footer_bg_opacity', array(
 		'label'           => __( 'Background opacity', 'wpbricks' ),
-		'section'     => 'footer_settings_section',
+		'section'         => 'footer_settings_section',
 		'active_callback' => 'wpbricks_footer_bg_image_status',
-		'input_attrs' => array(
+		'input_attrs'     => array(
 			'min'  => 0.1,
 			'step' => 0.1,
-			'max'  => 1
-		)
+			'max'  => 1,
+		),
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bricks_footer_bg_color', array(
 		'label'           => __( 'Background color', 'wpbricks' ),
 		'section'         => 'footer_settings_section',
-		'active_callback' => 'wpbricks_bricks_footer_bg_color_status'
+		'active_callback' => 'wpbricks_bricks_footer_bg_color_status',
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bricks_footer_title_color', array(
@@ -762,7 +762,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) ) );
 
 	$wp_customize->add_control( 'Facebook', array(
-		'label'           => __( "Facebook url", 'wpbricks' ),
+		'label'           => __( 'Facebook url', 'wpbricks' ),
 		'section'         => 'bricks_social_section',
 		'type'            => 'url',
 		'priority'        => 3,
@@ -770,7 +770,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'Google_plus', array(
-		'label'           => __( "Google plus url", 'wpbricks' ),
+		'label'           => __( 'Google plus url', 'wpbricks' ),
 		'section'         => 'bricks_social_section',
 		'type'            => 'url',
 		'priority'        => 4,
@@ -778,7 +778,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'Linkedin', array(
-		'label'           => __( "Linkedin url", 'wpbricks' ),
+		'label'           => __( 'Linkedin url', 'wpbricks' ),
 		'section'         => 'bricks_social_section',
 		'type'            => 'url',
 		'priority'        => 5,
@@ -786,7 +786,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'Twitter', array(
-		'label'           => __( "Twitter url", 'wpbricks' ),
+		'label'           => __( 'Twitter url', 'wpbricks' ),
 		'section'         => 'bricks_social_section',
 		'type'            => 'url',
 		'priority'        => 6,
@@ -794,7 +794,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'Insta', array(
-		'label'           => __( "Instagram url", 'wpbricks' ),
+		'label'           => __( 'Instagram url', 'wpbricks' ),
 		'section'         => 'bricks_social_section',
 		'type'            => 'url',
 		'priority'        => 7,
@@ -802,7 +802,7 @@ function wpbricks_register_theme_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'pinterest', array(
-		'label'           => __( "Pinterest url", 'wpbricks' ),
+		'label'           => __( 'Pinterest url', 'wpbricks' ),
 		'section'         => 'bricks_social_section',
 		'type'            => 'url',
 		'priority'        => 8,

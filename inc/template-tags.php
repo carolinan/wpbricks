@@ -7,14 +7,15 @@
  * @package wpbricks
  */
 
-if ( ! function_exists( 'wpbricks_posted_on' ) ) :
+if ( ! function_exists( 'wpbricks_posted_on' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function wpbricks_posted_on() {
 		$time_string = '<i class="fa fa-calendar" aria-hidden="true"></i><time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( 'c' ) ),
@@ -22,30 +23,30 @@ if ( ! function_exists( 'wpbricks_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf(
-		/* translators: %s: post date. */
+			/* translators: %s: post date. */
 			esc_html_x( 'Posted on %s', 'post date', 'wpbricks' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		echo '<span class="posted-on">' . wp_kses( $posted_on, array(
-				'a'    => array(
-					'href' => array(),
-					'rel'  => array(),
-				),
-				'i'    => array(
-					'class'       => array(),
-					'aria-hidden' => array(),
-				),
-				'time' => array(
-					'class'    => array(),
-					'datetime' => array()
-				),
-			) ) . '</span>'; // WPCS: XSS OK.
+			'a'    => array(
+				'href' => array(),
+				'rel'  => array(),
+			),
+			'i'    => array(
+				'class'       => array(),
+				'aria-hidden' => array(),
+			),
+			'time' => array(
+				'class'    => array(),
+				'datetime' => array()
+			),
+		) ) . '</span>'; // WPCS: XSS OK.
 
 	}
-endif;
+}
 
-if ( ! function_exists( 'wpbricks_entry_footer' ) ) :
+if ( ! function_exists( 'wpbricks_entry_footer' ) ) {
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
@@ -72,7 +73,7 @@ if ( ! function_exists( 'wpbricks_entry_footer' ) ) :
 			comments_popup_link(
 				sprintf(
 					wp_kses(
-					/* translators: %s: post title */
+						/* translators: %s: post title */
 						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'wpbricks' ),
 						array(
 							'span' => array(
@@ -89,7 +90,7 @@ if ( ! function_exists( 'wpbricks_entry_footer' ) ) :
 		edit_post_link(
 			sprintf(
 				wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
+					/* translators: %s: Name of current post. Only visible to screen readers */
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'wpbricks' ),
 					array(
 						'span' => array(
@@ -103,4 +104,4 @@ if ( ! function_exists( 'wpbricks_entry_footer' ) ) :
 			'</span>'
 		);
 	}
-endif;
+}

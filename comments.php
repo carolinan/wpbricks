@@ -5,7 +5,7 @@
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package wpbricks
  * @since 1.0.0
@@ -25,7 +25,8 @@ if ( post_password_required() ) {
 
 	<?php
 	// You can start editing here -- including this comment!
-	if ( have_comments() ) : ?>
+	if ( have_comments() ) {
+		?>
 		<h2 class="comments-title">
 			<?php
 			$comment_count = get_comments_number();
@@ -48,14 +49,19 @@ if ( post_password_required() ) {
 
 		<ol class="comment-list">
 			<?php
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
+			wp_list_comments(
+				array(
+					'style'      => 'ol',
+					'short_ping' => true,
+				)
+			);
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<?php
+		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) {
+			// Are there comments to navigate through?
+			?>
 			<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
 				<div class="nav-links">
 
@@ -65,17 +71,15 @@ if ( post_password_required() ) {
 				</div><!-- .nav-links -->
 			</nav><!-- #comment-nav-below -->
 			<?php
-		endif; // Check for comment navigation.
-
-	endif;
-
+		}; // Check for comment navigation.
+	}
 
 	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-
+	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
+		?>
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wpbricks' ); ?></p>
 		<?php
-	endif;
+	}
 
 	comment_form();
 	?>

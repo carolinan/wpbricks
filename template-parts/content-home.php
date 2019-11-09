@@ -1,8 +1,8 @@
 <?php
 /**
- * Template part for displaying results in search pages
+ * Template part for displaying content on the blog
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package wpbricks
  */
@@ -26,14 +26,10 @@ if ( ! empty( $post_data ) ) {
 			</div>
 			<div class="blog-details">
 				<?php
-				// set date formatting
-				$date_format_feature = $post_data->post_date;
-				$date                = date_create( $date_format_feature );
-				$date_format         = date_format( $date, 'M d, Y' );
-				$author              = get_the_author();
-				$avatar              = get_avatar( $post_data->post_author, 32 );
-				$avatar_full_url     = esc_url( get_avatar_url( $post_data->post_author ) );
-				$avatar_url          = explode( "?", $avatar_full_url );
+				$author          = get_the_author();
+				$avatar          = get_avatar( $post_data->post_author, 32 );
+				$avatar_full_url = esc_url( get_avatar_url( $post_data->post_author ) );
+				$avatar_url      = explode( "?", $avatar_full_url );
 				?>
 				<h3>
 					<a href="<?php the_permalink(); ?>">
@@ -43,8 +39,7 @@ if ( ! empty( $post_data ) ) {
 					</a>
 				</h3>
 				<span class="sub-title">
-					<img src="<?php echo esc_url( $avatar_url[0] ) . "?s=200"; ?>"
-					class="avatar avatar-32 photo">
+					<img src="<?php echo esc_url( $avatar_url[0] ) . "?s=200"; ?>" class="avatar avatar-32 photo">
 					<?php
 					/* Translators: %S = author name */
 					printf( __( 'By %s', 'wpbricks' ), $author );
@@ -62,7 +57,7 @@ if ( ! empty( $post_data ) ) {
 						<li>
 							<i class="fa fa-calendar" aria-hidden="true"></i>
 							<?php
-							echo esc_html( $date_format );
+							the_date();
 							?>
 						</li>
 					</ul>

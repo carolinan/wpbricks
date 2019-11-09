@@ -2,7 +2,7 @@
 /**
  * Template part for displaying posts
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package wpbricks
  */
@@ -14,11 +14,12 @@
 	<div class="post-head">
 
 		<?php
-		if ( is_singular() ) :
+		if ( is_singular() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
+		} else {
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+		}
+
 		$author          = get_the_author();
 		$author_id       = get_the_author_meta( 'ID' );
 		$avatar_full_url = esc_url( get_avatar_url( $author_id ) );
@@ -26,13 +27,14 @@
 		?>
 		<ul class="publish-details">
 			<?php
-			if ( 'post' === get_post_type() ) : ?>
+			if ( 'post' === get_post_type() ) {
+				?>
 				<li class="post_date">
 					<i class="fa fa fa-clock-o"></i>
 					<?php wpbricks_posted_on(); ?>
 				</li><!-- .entry-meta -->
 				<?php
-			endif;
+			}
 			?>
 			<li class="comments_num">
 				<i class="fa fa-comment-o"></i><?php echo esc_html( $post->comment_count ); ?>
@@ -62,24 +64,28 @@
 		if ( is_category() || is_archive() ) {
 			the_excerpt();
 		} else {
-			the_content( sprintf(
-				wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wpbricks' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
+			the_content(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wpbricks' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				)
+			);
 		}
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wpbricks' ),
-			'after'  => '</div>',
-		) );
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wpbricks' ),
+				'after'  => '</div>',
+			)
+		);
 		?>
 	</div><!-- .entry-content -->
 

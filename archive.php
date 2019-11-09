@@ -2,22 +2,24 @@
 /**
  * The template for displaying archive pages
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package wpbricks
  */
 
 get_header();
 ?>
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-			<?php if ( have_posts() ) : ?>
+			<?php
+			if ( have_posts() ) {
+				?>
 				<div class="blog-gallery bgs-posts">
 					<?php
-					while ( have_posts() ) : the_post();
+					while ( have_posts() ) {
+						the_post();
 						get_template_part( 'template-parts/content', 'index' );
-					endwhile;
+					}
 					?>
 				</div>
 				<div class="clearfix"></div>
@@ -25,9 +27,9 @@ get_header();
 					<?php the_posts_pagination(); ?>
 				</div>
 				<?php
-			else :
+			} else {
 				get_template_part( 'template-parts/content', 'none' );
-			endif;
+			}
 			?>
 		</main><!-- .site-main -->
 	</div><!-- container -->

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Function for the theme setup.
  */
-if ( ! function_exists( 'wpbricks_setup' ) ) :
+if ( ! function_exists( 'wpbricks_setup' ) ) {
 
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -49,42 +49,55 @@ if ( ! function_exists( 'wpbricks_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'header-menu' => __( 'Primary', 'wpbricks' ),
-		) );
+		register_nav_menus(
+			array(
+				'header-menu' => __( 'Primary', 'wpbricks' ),
+			)
+		);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
 
 		// Theme support for custom logo.
-		add_theme_support( 'custom-logo', array(
-			'height'      => 240,
-			'width'       => 250,
-			'flex-height' => true,
-			'flex-width'  => true,
-			'header-text' => array( '.site-title', 'site-description' ),
-		) );
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 240,
+				'width'       => 250,
+				'flex-height' => true,
+				'flex-width'  => true,
+				'header-text' => array( '.site-title', 'site-description' ),
+			)
+		);
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'wpbricks_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		add_theme_support(
+			'custom-background',
+			apply_filters(
+				'wpbricks_custom_background_args',
+				array(
+					'default-color' => 'ffffff',
+					'default-image' => '',
+				)
+			)
+		);
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
-
-endif;
+}
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -104,52 +117,61 @@ function wpbricks_content_width() {
  */
 function wpbricks_widgets_init() {
 
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'wpbricks' ),
-		'id'            => 'sidebar-1',
-		'description'   => __( 'Add Sidebar widgets here.', 'wpbricks' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer-1', 'wpbricks' ),
-		'id'            => 'footer_sidebar-1',
-		'description'   => __( 'add first widget of footer', 'wpbricks' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer-2', 'wpbricks' ),
-		'id'            => 'footer_sidebar-2',
-		'description'   => __( 'add second widget of footer', 'wpbricks' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer-3', 'wpbricks' ),
-		'id'            => 'footer_sidebar-3',
-		'description'   => __( 'add third widget of footer', 'wpbricks' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer-4', 'wpbricks' ),
-		'id'            => 'footer_sidebar-4',
-		'description'   => __( 'add fourth widget of footer', 'wpbricks' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar', 'wpbricks' ),
+			'id'            => 'sidebar-1',
+			'description'   => __( 'Add Sidebar widgets here.', 'wpbricks' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer-1', 'wpbricks' ),
+			'id'            => 'footer_sidebar-1',
+			'description'   => __( 'add first widget of footer', 'wpbricks' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer-2', 'wpbricks' ),
+			'id'            => 'footer_sidebar-2',
+			'description'   => __( 'add second widget of footer', 'wpbricks' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer-3', 'wpbricks' ),
+			'id'            => 'footer_sidebar-3',
+			'description'   => __( 'add third widget of footer', 'wpbricks' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer-4', 'wpbricks' ),
+			'id'            => 'footer_sidebar-4',
+			'description'   => __( 'add fourth widget of footer', 'wpbricks' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 
 /**
@@ -267,14 +289,14 @@ function wpbricks_add_page_header_transparent_setting_callback( $post ) {
 		<div>
 			<input type="radio" id="s_yes" name="header_transparent"
 				value="Yes" <?php if ( 'Yes' === $transparent_status ) {
-				echo 'checked';
+					echo 'checked';
 			} ?> />
 			<label for="s_yes"><?php esc_html_e( 'Yes', 'wpbricks' ); ?></label>
 		</div>
 		<div>
 			<input type="radio" id="s_no" name="header_transparent"
 				value="No" <?php if ( 'No' === $transparent_status ) {
-				echo 'checked';
+					echo 'checked';
 			} ?> />
 			<label for="s_no"><?php esc_html_e( 'No', 'wpbricks' ); ?></label>
 		</div>
@@ -318,6 +340,9 @@ function wpbricks_save_add_page_sticky_header_meta_box_data( $post_id ) {
 
 add_action( 'save_post', 'wpbricks_save_add_page_sticky_header_meta_box_data' );
 
+/**
+ * Enable sticky header.
+ */
 function wpbricks_sticky_header_info() {
 	global $post;
 	$header_setting             = '';

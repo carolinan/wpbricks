@@ -40,7 +40,7 @@ function TopMenuSticky() {
 	headerHeight = jQuery('.site-header .site-header-inner').outerHeight();
 	if ($('#page').hasClass('sticky-header')) {
 		if (jQuery('#page').hasClass('transparent-header')) {
-			jQuery('#page').css('padding-top', '0');
+			jQuery('#page').css('padding-top', headerHeight);
 		} else {
 			jQuery('#page').css('padding-top', headerHeight);
 		}
