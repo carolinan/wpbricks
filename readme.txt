@@ -1,16 +1,15 @@
 ========= WPBricks =========
 Contributors: dots
 Donate link: http://www.multidots.com/
-Tags: custom-background, custom-menu, featured-images
+Tags: custom-background, custom-menu, featured-images, blog
 Requires at least: 5.0
 Tested up to: 5.3
-Stable tag: 1.0.6
 Requires PHP: 5.6
-Version: 1.0.1
+Version: 1.0.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WPbricks WordPress Theme, Copyright 2019 Multidots
+WPbricks WordPress Theme, Copyright 2019-2020 Multidots
 WPbricks is distributed under the terms of the GNU GPL
 
 == Description ==
@@ -43,7 +42,8 @@ Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 = License =
 
 * Images
-All images are created by the theme author and are covered by the same license as the theme.
+All images, include those used in the screenshot,
+are created by the theme author and are covered by the same license and copyright as the theme.
 License: GNU General Public License v2 or later.
 
 == Frequently Asked Questions ==

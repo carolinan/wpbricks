@@ -1,11 +1,11 @@
 /*
 Theme Name: WPBricks
-Theme URI: https://www.multidots.com/
+Theme URI: 
 Author: Multidots
-Author URI: https://profiles.wordpress.org/dots
-Tags: custom-background, custom-menu, featured-images
+Author URI: https://www.multidots.com/
+Tags: custom-background, custom-menu, featured-images, blog
 Text Domain: wpbricks
-Version: 1.0.2
+Version: 1.0.4
 Requires at least: 5.0
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -24,6 +24,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 body{font-family:"Poppins", sans-serif;overflow-x:hidden}
 body div a,body div a:focus,body div a:hover{color:#ff7013}
 a:focus, a:hover{text-decoration:none}
+/* Text meant only for screen readers. */
+.screen-reader-text{position:absolute !important;clip: rect(1px, 1px, 1px, 1px);height: 1px; width: 1px;overflow: hidden}
+.screen-reader-text:focus{background-color: #f1f1f1;border-radius: 3px;box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);clip: auto !important;color: #21759b;display: block;font-size: 14px;font-size: 0.875rem;font-weight: bold;height: auto;left: 5px;line-height: normal;padding: 15px 23px 14px;text-decoration: none;top: 5px; width: auto;z-index: 100000}
+#content[tabindex="-1"]:focus {outline: 0;}
 .wrapper{width:1170px;margin:0 auto;max-width:96%}
 .read-more a{border:1px solid #333;display:inline-block;padding:10px 30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;line-height:1;text-decoration:none;color:#333;position:relative;z-index:1}
 .box-shadow{box-shadow:3px 3px 20px 1px rgba(51, 51, 51, 0.24);background:#fff;float:left;width:100%}
